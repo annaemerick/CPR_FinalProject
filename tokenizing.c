@@ -1,4 +1,4 @@
-// TOKENIZING MODULE SOURCE
+/// TOKENIZING MODULE SOURCE
 //#define _CRT_SECURE_NO_WARNINGS //this disables the security warnings (Visual Studio)
 #define BUFFER_SIZE 300 //this is settings our input buffer to a max of 300 characters
 #include "tokenizing.h" // This makes sure to include the tokenizing header file
