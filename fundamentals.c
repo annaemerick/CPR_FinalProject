@@ -53,4 +53,35 @@ void fundamentals(void) {
     /** Displays a message indicating the end of the program's functionality.
     This provides closure to the user and signals that the demonstration is complete*/
     printf("*** End of Indexing Strings Demo ***\n\n");
+
+  //v2
+ // Print a starting message to show the starting of the demo
+ printf("*** Start of Measuring Strings Demo ***\n");
+ char buffer2[BUFFER_SIZE];
+
+ do {
+     // Ask the user to type a string
+     printf("Type a string (q - to quit): \n");
+     // Read the user input (including spaces) from the keyboard
+     fgets(buffer2, BUFFER_SIZE, stdin);
+
+     // Remove the newline character added by fgets
+     buffer2[strlen(buffer2) - 1] = '\0';
+     // If the user didn't type "q", print the length of the string
+     if (strcmp(buffer2, "q") != 0)
+         printf("The length of '%s' is %d characters\n", buffer2, (int)strlen(buffer2));
+     // the loop keep looping until user types "q"
+ } while (strcmp(buffer2, "q") != 0);
+ //print an ending message to show the demo is over 
+ printf("*** End of Measuring Strings Demo ***\n\n");
+
+
+
+
+
+
+
+
+
+
 }

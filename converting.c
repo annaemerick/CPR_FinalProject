@@ -21,6 +21,23 @@ printf ("Converted number is %d\n", intNumber); //output the converted number
 printf("*** End of Converting Strings to int Demo ***\n\n"); //prints that program ended
 
 /* Version 2 */
+printf ("*** Start of Converting Strings to double Demo ***\n") ; //indicates to the user the start of the program
+char doubleString [BUFFER_SIZE]; //variable to store user string input
+double doubleNumber; //variable to store the result of the convertion
+do {
+printf ("Type the double numeric string (q - to quit) : \n"); //prompt the user to enter the numeric string
+fgets (doubleString, BUFFER_SIZE, stdin) ; //reads user input
+doubleString [strlen(doubleString) - 1] = '\0'; //makes sure that string ends with null character ('\0')
+if ((strcmp(doubleString, "q") != 0)) { //compare the given string to "q" (key to end the program). Convertion will run if they are not equal
+doubleNumber = atof (doubleString); //converts the numeric string to double, if the string is invalid, it will return 0
+printf ("Converted number is %f\n", doubleNumber); //output the converted number
+}
+} while (strcmp(doubleString, "q") != 0); //program will run until user enter "q"
+printf("*** End of Converting Strings to double Demo ***\n\n"); //indicates to user that program ended
+
+
+
+
 
 /* Version 3 */
 

@@ -24,4 +24,26 @@ void tokenizing(void) { // this is the function declaration
         }
     } while (strcmp(words, "q") != 0); // this continutes the loop until the user enters the letter q
     printf("*** End of Tokenizing Words Demo ***\n\n"); // message to let the user know that the demo is over
+
+    //V2
+    printf("*** Start of Tokenizing Phrases Demo ***\n");  // signal the start of the tokenizing demo for the user 
+    char phrases[BUFFER_SIZE]; // this is the buffer being used to store the users input 
+    char* nextPhrase = NULL; // this sets our pointer to a safe empty state
+    int phrasesCounter; // this is used to track how many phrases we have 
+    do {
+        printf("Type a few phrases separated by comma(q - to quit):\n"); // instructions for the user 
+        fgets(phrases, BUFFER_SIZE, stdin); // reads and stores the user input to the phrases buffer
+        phrases[strlen(phrases) - 1] = '\0'; // this replaces the new line with the null terminator 
+        if ((strcmp(phrases, "q") != 0)) { // this function checks to see if the phrase entered is 'q' to take the user out of the program 
+            nextPhrase = strtok(phrases, ","); // this checks for a commma as a way to seperate the phrases
+            phrasesCounter = 1; // this tracks how many phrases the user entered
+            while (nextPhrase) { // this makes sure the function will loop as long as the nextphrase pointer isnt null 
+                printf("Phrase #%d is \'%s\'\n", phrasesCounter++, nextPhrase); // displays the amount of phrases entered for the user 
+                nextPhrase = strtok(NULL, ","); // this is used to terminate the loop once the null terminator is reached
+            }
+
+        }
+    } while (strcmp(phrases, "q") != 0); //this checks if there is a 'q' and if not makes sure to prompt the user again for input 
+    printf("*** End of Tokenizing Phrases Demo ***\n\n"); //informs the user that the demo is complete 
+
 }
