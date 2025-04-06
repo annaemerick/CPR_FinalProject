@@ -4,7 +4,7 @@
 #include "tokenizing.h" // This makes sure to include the tokenizing header file
 
 
-//V1
+/* Version 1 */
 void tokenizing(void) { // this is the function declaration
     printf("*** Start of Tokenizing Words Demo ***\n");   //The beginning message for the user to let them know the demo has started
     char  words[BUFFER_SIZE + 1]; //this creates an array with the buffer size limit, this is what will be used to store user input //A +1 was added to fix an issue where it would not drop anything over 300 charac
@@ -25,7 +25,7 @@ void tokenizing(void) { // this is the function declaration
     } while (strcmp(words, "q") != 0); // this continutes the loop until the user enters the letter q
     printf("*** End of Tokenizing Words Demo ***\n\n"); // message to let the user know that the demo is over
 
-    //V2
+    /* Version 2 */
     printf("*** Start of Tokenizing Phrases Demo ***\n");  // signal the start of the tokenizing demo for the user 
     char phrases[BUFFER_SIZE]; // this is the buffer being used to store the users input 
     char* nextPhrase = NULL; // this sets our pointer to a safe empty state
@@ -46,4 +46,26 @@ void tokenizing(void) { // this is the function declaration
     } while (strcmp(phrases, "q") != 0); //this checks if there is a 'q' and if not makes sure to prompt the user again for input 
     printf("*** End of Tokenizing Phrases Demo ***\n\n"); //informs the user that the demo is complete 
 
+
+
+    /* Version 3 */
+printf("*** Start of Tokenizing Sentences Demo ***\n");  //informs the user that the demo has begun
+  char sentences[BUFFER_SIZE]; // defines the array that will hold the user input
+  char* nextSentence = NULL; // created a pointer for the extracted token and sets it to a safe empty space
+  int sentencesCounter; // will be used to keep track of the amount of sentences in the user enters
+
+  do {
+      printf("Type a few sentences separated by dot(q - to quit):\n"); //prompts the user to enter their input
+      fgets(sentences, BUFFER_SIZE, stdin); // this reads the user input and stores it to the 'sentences' array
+      sentences[strlen(sentences) - 1] = '\0'; //
+      if ((strcmp(sentences, "q") != 0)) { // checks if the user would like to exit the program if q is entered this blcok is not executed
+          nextSentence = strtok(sentences, "."); // it is used to break the input strings based on the delimiter which is '.'
+          sentencesCounter = 1; // keeps track of how many sentences the user entered
+          while (nextSentence) { // continues to loop as longaas nextsentence is not null
+              printf("Sentence #%d is \'%s\'\n", sentencesCounter++, nextSentence); //displays the results to the user based on how many sentences they entered
+              nextSentence = strtok(NULL, "."); // this checks for null so the program klnows when it is done checking for strings
+          }
+      }
+  } while (strcmp(sentences, "q") != 0); // this checks for 'q' to see if the loop should continue
+  printf("*** End of Tokenizing Sentences Demo ***\n\n"); // informs user that the program demo is complete.
 }

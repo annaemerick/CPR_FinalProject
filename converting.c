@@ -36,10 +36,21 @@ printf ("Converted number is %f\n", doubleNumber); //output the converted number
 printf("*** End of Converting Strings to double Demo ***\n\n"); //indicates to user that program ended
 
 
-
-
-
 /* Version 3 */
+printf("*** Start of Converting Strings to long Demo ***\n"); //indicates to the user the start of the program
+char longString[BUFFER_SIZE]; //variable to store user string input
+long longNumber; //variable to store the result of the convertion
+do {
+	printf("Type the long numeric string (q - to quit): \n"); //prompt the user to enter a numeric string
+	fgets(longString, BUFFER_SIZE, stdin); //reads user input
+	longString[strlen(longString) - 1] = '\0'; //makes sure that string ends with null character ('\0')
+	if ((strcmp(longString, "q") != 0)) { //compare the given string to "q" (key to end the program). Convertion will run if they are not equivalent
+		longNumber = atol(longString); //converts the numeric string to long, if the string is invalid, it will return 0
+		printf("Converted number is %ld\n", longNumber); //output the converted number
+	}
+}
+while (strcmp(longString, "q") != 0); //program will run until user enter "q"
+printf("*** End of Converting Strings to long Demo ***\n\n"); //indicates to user that program ended
 
 }
 

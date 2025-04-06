@@ -112,12 +112,67 @@ void manipulating(void)
 
 // Prints a message indicating the end of the demo
     printf("*** End of Comparing Strings Demo ***\n\n"); 
+
+
+
+
+/* Version 3 */      // Function to demonstrate string searching
+
+//    // Prints a message indicating the start of the string searching demo
+   printf("*** Start of Searching Strings Demo ***\n");
+//
+//    // Declares a character array to hold the main string to be searched
+    char haystack[BUFFER_SIZE];
+//
+//    // Declares a character array to hold the substring to search for
+    char needle[BUFFER_SIZE];
+//
+//    // Declares a pointer to store the address where the substring is found (if any)
+    char* occurrence = NULL;
+//
+//
+//    // Starts a loop that continues until the user enters "q" as input
+    do {
+//
+//        // Prompts the user to enter the main string (haystack)
+        printf("Type the string (q - to quit):\n");
+//
+//        // Reads the main string input from the user (including newline)
+        fgets(haystack, BUFFER_SIZE, stdin);
+//
+//        // Removes the newline character from the end of the haystack string
+        haystack[strlen(haystack) - 1] = '\0';
+//
+//        // Checks if the user did not enter "q" (continue if not quitting)
+        if (strcmp(haystack, "q") != 0) {
+//
+//            // Prompts the user to enter the substring to search for
+            printf("Type the substring:\n");
+//
+//            // Reads the substring input from the user
+            fgets(needle, BUFFER_SIZE, stdin);
+//
+//            // Removes the newline character from the end of the needle string
+            needle[strlen(needle) - 1] = '\0';
+//
+//            // Searches for the substring (needle) inside the main string (haystack) and returns a pointer to the first occurrence or NULL if not found
+            occurrence = strstr(haystack, needle);
+//
+//            // If found, prints the substring and its position within the main string
+            if (occurrence)
+                printf("\'%s\' found at %d position\n", needle,
+                    (int)(occurrence - haystack));
+//
+//            // If not found, prints "Not found"
+            else
+                printf("Not found\n");
+        }
+//        // Continues the loop unless the user enters "q"
+    } while (strcmp(haystack, "q") != 0);
+//
+//    // Prints a message indicating the end of the demo
+    printf("*** End of Searching Strings Demo ***\n\n");
 }
-
-
-
-
-
 
 
 
